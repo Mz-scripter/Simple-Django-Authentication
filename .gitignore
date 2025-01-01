@@ -1,0 +1,47 @@
+# Python specific
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+
+
+# Django specific
+/media/
+*.log
+
+# Virtual environment
+env/
+venv/
+ENV/
+VENV/
+
+# Editor/IDE specific
+.vscode/
+.idea/
+*.swp
+*~
+
+# System-specific
+.DS_Store
+Thumbs.db
+
+# Testing and coverage reports
+htmlcov/
+.coverage
+*.cover
+.pytest_cache/
+.tox/
+.junit.xml
+
+# Deployment
+*.env
+.env.*
+*.bak
+*.orig
+
+
+# Migrations
+**/migrations/*.pyc
+**/migrations/__pycache__/
+**/migrations/*.py
+!**/migrations/__init__.py
