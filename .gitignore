@@ -6,7 +6,6 @@ __pycache__/
 
 
 # Django specific
-/media/
 *.log
 
 # Virtual environment

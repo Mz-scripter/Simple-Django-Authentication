@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <link rel="stylesheet" href="{% static 'css/tailwind_output.css' %}">
+</head>
+<body class="bg-gray-100">
+    <div class="container mx-auto py-10">
+        <h1 class="text-4xl font-bold text-center">Your Profile</h1>
+        <div class="bg-white p-6 rounded-lg shadow-md mx-auto max-w-md mt-6">
+            <img src="{{ profile.profile_image.url }}" alt="Profile Image" class="w-32 h-32 rounded-full mx-auto">
+            <p class="text-center text-gray-600">Username: {{ user.username }}</p>
+            <p class="text-center text-gray-600">Address: {{ profile.address }}</p>
+            <p class="text-center text-gray-600">Email: {{ user.email }}</p>
+        </div>
+    </div>
+</body>
+</html>
