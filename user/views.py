@@ -4,6 +4,7 @@ from django.contrib.auth.decorators import login_required
 from .forms import UserRegistrationForm, ProfileForm, LoginForm
 from .models import Profile
 from django.contrib.auth.models import User
+from allauth.socialaccount.models import SocialAccount
 
 def home(request):
     return render(request, 'user/home.html')
@@ -47,5 +48,6 @@ def user_login(request):
 
 @login_required(login_url='login')
 def profile(request):
-    return render(request, 'user/profile.html', {'user': request.user, 'profile': request.user.profile})
+    social_account = SocialAccount.objects.filter(user=request.user).first()
+    return render(request, 'user/profile.html', {'user': request.user, 'profile': request.user.profile, 'social_account': social_account})
 
