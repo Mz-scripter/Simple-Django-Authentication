@@ -12,7 +12,8 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 
 from pathlib import Path
 import os
-
+from dotenv import load_dotenv
+load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -46,6 +47,7 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.github',
+    'allauth.socialaccount.providers.google',
 ]
 
 SITE_ID = 1
@@ -121,8 +123,15 @@ AUTHENTICATION_BACKENDS = [
 SOCIALACCOUNT_PROVIDERS = {
     'github': {
         'APP': {
-            'client_id': 'Ov23liD9ix9qlljdlNDM',
-            'secret': 'aa3edd74dbcc52258053eac28d3ecd628e04d82d',
+            'client_id': os.getenv('GITHUB_CLIENT_ID'),
+            'secret': os.getenv('GITHUB_CLIENT_SECRET'),
+            'key': ''
+        }
+    },
+    'google': {
+        'APP': {
+            'client_id': os.getenv('GOOGLE_CLIENT_ID'),
+            'secret': os.getenv('GOOGLE_CLIENT_SECRET'),
             'key': ''
         }
     }

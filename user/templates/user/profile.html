@@ -12,10 +12,15 @@
         <h1 class="text-4xl font-bold text-center">Your Profile</h1>
         <div class="bg-white p-6 rounded-lg shadow-md mx-auto max-w-md mt-6">
             
-            {% if social_account %}
+            {% if social_account.provider == 'github' %}
             <p>GitHub Username: {{ social_account.extra_data.login }}</p>
             <p>Full Name: {{ social_account.extra_data.name }}</p>
             <img src="{{ social_account.extra_data.avatar_url }}" alt="Profile Image" class="w-32 h-32 rounded-full mx-auto">
+            {% elif social_account.provider == 'google' %}
+            <p>Google Email: {{ social_account.extra_data.email }}</p>
+            <p>Full Name: {{ social_account.extra_data.name }}</p>
+            <img src="{{ social_account.extra_data.picture }}" alt="Profile Image" class="w-32 h-32 rounded-full mx-auto">
+
             {% else %}
             <img src="{{ profile.profile_image.url }}" alt="Profile Image" class="w-32 h-32 rounded-full mx-auto">
             <h2 class="text-center text-gray-600">Username: {{ user.username }}</h2>
