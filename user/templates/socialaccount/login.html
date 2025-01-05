@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/tailwind_output.css' %}">
+    <title>Sign In</title>
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+    <div class="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
+        <h1 class="text-2xl font-bold mb-4 text-center">Sign In Via Google</h1>
+        <p class="mb-6 text-gray-700 text-center">
+            You are about to sign in using a third-party account from Google.
+        </p>
+        <form method="post" action="">
+            {% csrf_token %}
+            <button type="submit" class="w-full bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">
+                Continue
+            </button>
+        </form>
+        <div class="mt-6 text-center">
+            <a href="/accounts/logout/" class="text-blue-500 hover:underline">Sign Out</a>
+        </div>
+    </div>
+</body>
+</html>
